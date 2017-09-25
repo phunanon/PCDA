@@ -101,7 +101,7 @@ function search ()
 var openIgnore = Date.now();
 function openArgument (arg)
 {
-    if (Date.now() > openIgnore) {
+    if (Date.now() > openIgnore && window.getSelection().toString() == "") {
         var s = gE(arg.id +'e').style;
         if (s.maxHeight == "20rem") {
             s.maxHeight = "0rem";
