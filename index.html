@@ -11,7 +11,7 @@ var arguments_DB = [
     ["Communism is against human nature", "human, nature, unnatural", "", ""],
     ["Markets result in perfect allocation of resources", "markets, allocation, perfect, resources", "", ""],
     ["Communism is undemocratic", "democracy, dictatorship, undemocratic", "", ""],
-    ["Communism has never worked", "worked, success, failure", "", ""],
+    ["Communism has never worked", "work, success, failure, achieve", "", ""],
     ["Communism killed millions of people", "killed, deaths, millions, died", "", ""],
     ["Communism is too corruptible", "corruption", "", ""]
 ];
@@ -174,7 +174,6 @@ navbar * {
 }
 navbar h1 {
     font-size: 1.8rem;
-    text-shadow: .1rem .1rem .1rem rgba(0, 0, 0, .5);
     font-kerning: none;
     margin: 1rem 1rem 1rem -1rem;
     letter-spacing: -.15rem;
@@ -185,6 +184,7 @@ navbar h1 {
 }
 #search {
     text-decoration: underline;
+    width: 16rem;
 }
 #search::placeholder {
     color: #222;
@@ -198,7 +198,7 @@ navbar h1 {
     color: #000;
 }
 #searchIcon {
-    margin-right: -.5rem;
+    margin-right: -.75rem;
     font-size: 2rem;
     min-width: 2.2rem;
     display: inline-block;
@@ -297,6 +297,9 @@ h2 {
     navbar {
         height: 2.5rem;
     }
+    navbar h1 {
+        margin: 1rem 0rem 1rem -1rem;
+    }
     #search {
         font-size: 1.2rem;
     }
@@ -322,8 +325,7 @@ h2 {
     </head>
     <body onload="pageLoad()">
         <navbar onclick="gE('search').focus()">
-            <h1>PCDA</h1>
-            <span id="searchIcon" onclick="gE('search').value = ''; search();">&#x1f50e;</span><input type="text" id="search" placeholder="Search for keywords" onkeyup="search()" autocomplete="off"></input>
+            <h1>PCDA &#x262d;</h1><span id="searchIcon" onclick="gE('search').value = ''; search();">&#x1f50e;</span><input type="text" id="search" placeholder="Search for keywords" onkeyup="search()" autocomplete="off"></input>
             <keywords>Famine, Ukraine</keywords>
         </navbar>
         <content>
