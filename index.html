@@ -102,11 +102,14 @@ var openIgnore = Date.now();
 function openArgument (arg)
 {
     if (Date.now() > openIgnore && window.getSelection().toString() == "") {
-        var s = gE(arg.id +'e').style;
-        if (s.maxHeight == "20rem") {
-            s.maxHeight = "0rem";
+        var as = gE(arg.id).style;
+        var es = gE(arg.id +'e').style;
+        if (es.maxHeight == "20rem") {
+            es.maxHeight = "0rem";
+            as.backgroundColor = "#ddd";
         } else {
-            s.maxHeight = "20rem";
+            es.maxHeight = "20rem";
+            as.backgroundColor = "#fff";
         }
     }
     openIgnore = Date.now() + 100;
@@ -175,11 +178,15 @@ navbar h1 {
 #search {
     text-decoration: underline;
 }
+#search::placeholder {
+    color: #222;
+}
 #search, #searchIcon {
     font-size: 1.5rem;
     padding: .5rem;
     background-color: transparent;
     border-style: none;
+    outline: none;
     color: #000;
 }
 #searchIcon {
@@ -193,11 +200,12 @@ content {
     min-height: 100%;
     background-color: #fff;
     padding: 1rem 1rem 10rem 1rem;
+    text-align: center;
 }
 intro {
     display: block;
     overflow: hidden;
-    max-height: 10rem;
+    max-height: 16rem;
 }
 
 keywords {
@@ -213,16 +221,18 @@ keywords {
 
 argument {
     display: inline-block;
+    text-align: left;
     margin: 1rem auto;
     padding: 1rem;
     text-shadow: .1rem .1rem .1rem rgba(0, 0, 0, .2);
     border: .1rem solid #000;
+    background-color: #ddd;
     max-height: 50rem;
     box-shadow: .2rem .2rem .2rem rgba(0, 0, 0, .5);
     cursor: pointer;
     overflow-x: hidden;
     vertical-align: top;
-    width: 90%;
+    width: 95%;
 }
 accusation {
     display: block;
@@ -252,8 +262,9 @@ short, long {
     border-left: .2rem solid #000;
     padding: .5rem;
 }
-long {
-    border-top: .1rem solid #000;
+short {
+    font-size: 1.32rem;
+    border-bottom: .1rem solid #000;
 }
 
 
@@ -277,7 +288,7 @@ h2 {
         font-size: 1.2rem;
     }
     argument {
-        width: 80%;
+        width: 90%;
     }
 }
 @media (min-width: 60rem) {
