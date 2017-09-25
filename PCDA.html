@@ -1,0 +1,287 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Pro-Communist Database of Arguments</title>
+        <meta name="viewport" content="width=device-width, initial-scale=0.8">
+        <meta charset="UTF-8">
+        <script>
+var argumentsDB = [
+    ["Markets foster innovation", "capitalism, innovation, entrepreneurship, markets", "Short rebuttal", "Long, sourced counter-argument"],
+    ["Stalin manufactured famine in The Ukraine", "famine, The Ukraine, Soviet Union, Stalin, 1932", "Short", "Long"],
+    ["Communism is against human nature", "human, nature, unnatural", "", ""],
+    ["Markets result in perfect allocation of resources", "markets, resources, allocation, perfect, resources", "", ""],
+    ["Communism is undemocratic", "democracy, dictatorship, undemocratic", "", ""],
+    ["Communism has never worked", "worked, success, fail", "", ""],
+    ["Communism killed millions of people", "killed, deaths, millions, died", "", ""]
+];
+
+
+
+
+function pageLoad ()
+{
+  //Output arguments to the DOM
+    var argumentsHTML = '';
+    for (var a = 0, alen = argumentsDB.length; a < alen; ++a) {
+        argumentsHTML += '<argument onclick="openArgument(this)" id="a'+ a +'"><accusation>'+
+            argumentsDB[a][0] +'</accusation><tags>'+
+            argumentsDB[a][1] +'</tags><expand id="a'+ a +'e"><short>'+
+            argumentsDB[a][2] +'</short><long>'+
+            argumentsDB[a][3] +'</long></expand></argument>';
+    }
+    gEbT("arguments").innerHTML = argumentsHTML;
+}
+
+
+function seekWord (start, text)
+{
+    var ret = "";
+    for (var t = start, tlen = 0; t >= tlen; --t) {
+        start = t;
+        if (text[t] == " ") { break; }
+    }
+    for (var t = start, tlen = text.length; t < tlen; ++t) {
+        if (text[t] != ",") {
+            ret += text[t];
+        } else {
+            break;
+        }
+    }
+    return ret;
+}
+
+function search ()
+{
+    var searchTerm = gE("search").value.trim();
+    if (searchTerm.length > 0) {
+      //Reveal and hide elements on DOM
+        gEbT("navbar").style.height = "7rem";
+        gEbT("intro").style.maxHeight = "0rem";
+        gEbT("intro").style.opacity = "0";
+        gEbT("content").style.marginTop = "8rem";
+        gEbT('keywords').innerHTML = "";
+      //Hide all arguments
+        for (var a = 0, alen = argumentsDB.length; a < alen; ++a) {
+            gE('a'+ a).style.display = "none";
+        }
+    } else {
+        gEbT("navbar").style.height = "3rem";
+        gEbT("intro").style.maxHeight = "10rem";
+        gEbT("intro").style.opacity = "1";
+        gEbT("content").style.marginTop = "5rem";
+      //Unhide all arguments
+        for (var a = 0, alen = argumentsDB.length; a < alen; ++a) {
+            gE('a'+ a).style.display = "block";
+        }
+        return;
+    }
+    var terms = searchTerm.split(" ");
+    for (var t = 0, tlen = terms.length; t < tlen; ++t) {
+      //Search through all tags, and hide arguments not containing that tag
+        for (var a = 0, alen = argumentsDB.length; a < alen; ++a) {
+            var ki = argumentsDB[a][1].toLowerCase().indexOf(terms[t].toLowerCase());
+            if (ki != -1) {
+                gE('a'+ a).style.display = "block";
+                keyword = seekWord(ki, argumentsDB[a][1]);
+                keywords = gEbT('keywords').innerHTML;
+                if (keywords.indexOf(keyword) == -1) {
+                    gEbT('keywords').innerHTML += (keywords.length ? ', ' : '') + keyword;
+                }
+            }
+        }
+    }
+}
+
+var openIgnore = Date.now();
+function openArgument (arg)
+{
+    if (Date.now() > openIgnore) {
+        var s = gE(arg.id +'e').style;
+        if (s.maxHeight == "20rem") {
+            s.maxHeight = "0rem";
+        } else {
+            s.maxHeight = "20rem";
+        }
+    }
+    openIgnore = Date.now() + 100;
+}
+
+
+function gE (e) { return document.getElementById(e); }
+function gEbT (e) { return document.getElementsByTagName(e)[0]; }
+        </script>
+
+
+
+
+
+        <style>
+@font-face {
+    font-family: 'Museo Slab';
+    src: url('museo-slab.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Tangerine';
+    src: url('Tangerine.woff2') format('woff2');
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    transition: all 1s ease;
+}
+html, body {
+    min-height: 100%;
+}
+body {
+    position: relative;
+    background-color: #fff;
+    font-family: "Museo Slab", serif;
+    font-size: 1.1rem;
+    letter-spacing: .01rem;
+    text-shadow: .1rem .1rem .1rem rgba(0, 0, 0, .25);
+}
+
+navbar {
+    position: fixed;
+    top: 0rem;
+    display: block;
+    background-color: #f00;
+    color: #fff;
+    width: 100%;
+    padding: 1rem;
+    overflow: hidden;
+    height: 3rem;
+}
+navbar * {
+    display: inline;
+}
+navbar h1 {
+    font-size: 1.8rem;
+    text-shadow: .1rem .1rem .1rem rgba(0, 0, 0, .5);
+    font-kerning: none;
+    margin-left: -1rem;
+    letter-spacing: -.15rem;
+    background-color: #fff;
+    color: #000;
+    padding: .5rem .65rem .5rem 1.5rem;
+}
+#search {
+    text-decoration: underline;
+}
+#search, #searchIcon {
+    font-size: 1.5rem;
+    padding: .5rem;
+    background-color: transparent;
+    border-style: none;
+    color: #000;
+}
+#searchIcon {
+    margin-left: 1rem;
+    margin-right: -.5rem;
+    font-size: 2rem;
+}
+
+content {
+    display: block;
+    margin-top: 5rem;
+    min-height: 100%;
+    background-color: #fff;
+    padding: 1rem 1rem 10rem 1rem;
+}
+intro {
+    display: block;
+    overflow: hidden;
+    max-height: 10rem;
+}
+
+keywords {
+    display: block !important;
+    max-width: 100%;
+    background-color: #000;
+    margin: 1rem 1rem 0rem 1rem;
+    padding: .5rem;
+    font-size: 1.5rem;
+    font-variant: small-caps;
+    color: #fff;
+}
+
+argument {
+    display: block;
+    margin: 1rem auto;
+    padding: 1rem;
+    text-shadow: .1rem .1rem .1rem rgba(0, 0, 0, .2);
+    border: .1rem solid #000;
+    max-height: 50rem;
+    box-shadow: .2rem .2rem .2rem rgba(0, 0, 0, .5);
+    cursor: pointer;
+    overflow-x: hidden;
+}
+accusation {
+    display: block;
+    font-size: 1.25rem;
+    text-align: left;
+    line-height: 1.5rem;
+    border-bottom: .2rem solid #000;
+    padding: .25rem;
+    font-weight: bold;
+}
+tags {
+    display: block;
+    background-color: #000;
+    color: #fff;
+    width: 20rem;
+    padding: .25rem .5rem;
+    font-size: 1.2rem;
+    font-variant: small-caps;
+}
+argument expand {
+    display: block;
+    max-height: 0rem;
+    overflow: hidden;
+}
+short, long {
+    display: block;
+    border-left: .2rem solid #000;
+    padding: .5rem;
+}
+long {
+    border-top: .1rem solid #000;
+}
+
+
+h2 {
+    font-size: 1.5rem;
+    text-align: center;
+    line-height: 1.5rem;
+    margin: 0rem auto 1rem auto;
+    border-bottom: .2rem solid #000;
+    padding: .25rem;
+    font-variant: small-caps;
+    letter-spacing: 0.2rem;
+}
+p {
+    text-align: justify;
+    line-height: 1.8rem;
+    /*text-indent: -1rem;
+    padding-left: 1rem;*/
+    margin-bottom: 1rem;
+}
+        </style>
+    </head>
+    <body onload="pageLoad()">
+        <navbar>
+            <h1>PCDA</h1>
+            <span id="searchIcon">&#x1f50e;</span><input type="text" id="search" placeholder="Search for keywords" onkeyup="search()" autocomplete="off"></input>
+            <keywords>Famine, Ukraine</keywords>
+        </navbar>
+        <content>
+            <intro>
+                <h2>Pro-Communist Database of Arguments</h2>
+                <p>This database looks to address and refute all possible arguments against communism. Use the search-bar to find particular ones. Click/tap an argument to expand.</p>
+            </intro>
+            <arguments>
+            </arguments>
+        </content>
+    </body>
+</html>
