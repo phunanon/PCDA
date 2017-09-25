@@ -6,7 +6,7 @@
         <meta charset="UTF-8">
         <script>
 var arguments_DB = [
-    ["Markets foster innovation", "capitalism, innovation, entrepreneurship, markets", "Short rebuttal", "Long, sourced counter-argument"],
+    ["Markets foster innovation", "innovation, entrepreneurship, markets", "Short rebuttal", "Long, sourced counter-argument"],
     ["Stalin manufactured famine in The Ukraine", "famine, The Ukraine, Soviet Union, Stalin, 1932", "Short", "Long"],
     ["Communism is against human nature", "human, nature, unnatural", "", ""],
     ["Markets result in perfect allocation of resources", "markets, allocation, perfect, resources", "", ""],
@@ -110,7 +110,7 @@ function openArgument (arg)
     if (Date.now() > open_ignore && window.getSelection().toString() == "") {
         var st_as = gE(arg.id).style;
         var st_es = gE(arg.id +'e').style;
-        if (es.maxHeight == "20rem") {
+        if (st_es.maxHeight == "20rem") {
             st_es.maxHeight = "0rem";
             st_as.backgroundColor = "#ddd";
         } else {
