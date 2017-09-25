@@ -59,7 +59,7 @@ function search ()
         gEbT("intro").style.maxHeight = "0rem";
         gEbT("intro").style.opacity = "0";
         gEbT("content").style.marginTop = "8rem";
-        gEbT('keywords').innerHTML = "";
+        gEbT('keywords').innerHTML = "&nbsp;";
       //Hide all arguments
         for (var a = 0, alen = argumentsDB.length; a < alen; ++a) {
             gE('a'+ a).style.display = "none";
@@ -71,24 +71,29 @@ function search ()
         gEbT("content").style.marginTop = "5rem";
       //Unhide all arguments
         for (var a = 0, alen = argumentsDB.length; a < alen; ++a) {
-            gE('a'+ a).style.display = "block";
+            gE('a'+ a).style.display = "inline-block";
         }
         return;
     }
     var terms = searchTerm.split(" ");
+    var found = false;
     for (var t = 0, tlen = terms.length; t < tlen; ++t) {
       //Search through all tags, and hide arguments not containing that tag
         for (var a = 0, alen = argumentsDB.length; a < alen; ++a) {
             var ki = argumentsDB[a][1].toLowerCase().indexOf(terms[t].toLowerCase());
             if (ki != -1) {
-                gE('a'+ a).style.display = "block";
+                gE('a'+ a).style.display = "inline-block";
                 keyword = seekWord(ki, argumentsDB[a][1]);
                 keywords = gEbT('keywords').innerHTML;
                 if (keywords.indexOf(keyword) == -1) {
-                    gEbT('keywords').innerHTML += (keywords.length ? ', ' : '') + keyword;
+                    found = true;
+                    gEbT('keywords').innerHTML += (keywords.length > 6 ? ', ' : '') + keyword;
                 }
             }
         }
+    }
+    if (!found) {
+        gEbT('keywords').innerHTML = "&nbsp;";
     }
 }
 
@@ -206,7 +211,7 @@ keywords {
 }
 
 argument {
-    display: block;
+    display: inline-block;
     margin: 1rem auto;
     padding: 1rem;
     text-shadow: .1rem .1rem .1rem rgba(0, 0, 0, .2);
@@ -215,6 +220,8 @@ argument {
     box-shadow: .2rem .2rem .2rem rgba(0, 0, 0, .5);
     cursor: pointer;
     overflow-x: hidden;
+    vertical-align: top;
+    width: 90%;
 }
 accusation {
     display: block;
@@ -266,6 +273,23 @@ h2 {
     }
     #search {
         font-size: 1.2rem;
+    }
+    argument {
+        width: 80%;
+    }
+}
+@media (min-width: 60rem) {
+    argument {
+        width: 42%;
+        margin-right: 2rem;
+        display: inline-block;
+    }
+}
+@media (min-width: 100rem) {
+    argument {
+        width: 29%;
+        margin-right: 2rem;
+        display: inline-block;
     }
 }
         </style>
