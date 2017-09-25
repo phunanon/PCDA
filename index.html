@@ -160,7 +160,7 @@ navbar h1 {
     font-size: 1.8rem;
     text-shadow: .1rem .1rem .1rem rgba(0, 0, 0, .5);
     font-kerning: none;
-    margin-left: -1rem;
+    margin: 1rem 1rem 1rem -1rem;
     letter-spacing: -.15rem;
     background-color: #fff;
     color: #000;
@@ -177,7 +177,6 @@ navbar h1 {
     color: #000;
 }
 #searchIcon {
-    margin-left: 1rem;
     margin-right: -.5rem;
     font-size: 2rem;
 }
@@ -260,12 +259,14 @@ h2 {
     font-variant: small-caps;
     letter-spacing: 0.2rem;
 }
-p {
-    text-align: justify;
-    line-height: 1.8rem;
-    /*text-indent: -1rem;
-    padding-left: 1rem;*/
-    margin-bottom: 1rem;
+
+@media (max-width: 40rem) {
+    navbar {
+        height: 2.5rem;
+    }
+    #search {
+        font-size: 1.2rem;
+    }
 }
         </style>
     </head>
