@@ -7,13 +7,17 @@
         <script>
 var arguments_DB = [
     ["Markets foster innovation", "innovation, entrepreneurship, markets", "Short rebuttal", "Long, sourced counter-argument"],
-    ["Stalin manufactured famine in The Ukraine", "famine, The Ukraine, Soviet Union, Stalin, 1932", "Short", "Long"],
+    ["Stalin manufactured famine in The Ukraine", "famine, The Ukraine, Soviet, Union, Stalin, 1932", "Short", "Long"],
     ["Communism is against human nature", "human, nature, unnatural", "", ""],
     ["Markets result in perfect allocation of resources", "markets, allocation, perfect, resources", "", ""],
     ["Communism is undemocratic", "democracy, dictatorship, undemocratic", "", ""],
     ["Communism has never worked", "work, success, failure, achieve", "", ""],
     ["Communism killed millions of people", "killed, deaths, millions, died", "", ""],
-    ["Communism is too corruptible", "corruption", "", ""]
+    ["Communism is too corruptible", "corruption", "", ""],
+    ["Venezuela is socialist", "Venezuela", "", ""],
+    ["The Soviet Union was allied with Nazi Germany", "Nazism, Germany, Soviet, Union", "", ""],
+    ["Socialist countries are always poor and hungry", "poverty, poor, hungry, hunger", "", "Burkina Faso"],
+    ["Communist countries are anti-LGBT/civil rights", "", "", "Burkina Faso"]
 ];
 
 
@@ -23,6 +27,7 @@ function pageLoad ()
 {
   //Output arguments to the DOM
     var arguments_HTML = '';
+    fy(arguments_DB); //Randomise argument order
     for (var a = 0, a_len = arguments_DB.length; a < a_len; ++a) {
         arguments_HTML += '<argument onclick="openArgument(this)" id="a'+ a +'"><accusation>'+
             arguments_DB[a][0] +'</accusation><tags>'+
@@ -55,11 +60,13 @@ function search ()
 {
     var search_term = gE("search").value.trim();
     var el_si = gE("searchIcon");
+    var el_kw = gEbT('keywords');
+    var st_in = gEbT("intro").style;
     if (search_term.length > 0) {
       //Reveal and hide elements on DOM for searching
         gEbT("navbar").style.height = "7rem";
-        gEbT("intro").style.maxHeight = "0rem";
-        gEbT("intro").style.opacity = "0";
+        st_in.maxHeight = "0rem";
+        st_in.opacity = "0";
         gEbT("content").style.marginTop = "8rem";
         gEbT('keywords').innerHTML = "&nbsp;";
         el_si.innerHTML = "&#x274c;";
@@ -71,8 +78,8 @@ function search ()
     } else {
       //Restore states of DOM elements after searching
         gEbT("navbar").style.height = "2.9rem";
-        gEbT("intro").style.maxHeight = "10rem";
-        gEbT("intro").style.opacity = "1";
+        st_in.maxHeight = "10rem";
+        st_in.opacity = "1";
         gEbT("content").style.marginTop = "5rem";
         el_si.innerHTML = "&#x1f50e;";
         el_si.style.cursor = "unset";
@@ -91,10 +98,10 @@ function search ()
             if (ki != -1) {
                 gE('a'+ a).style.display = "inline-block";
                 keyword = seekWord(ki, arguments_DB[a][1]);
-                keywords = gEbT('keywords').innerHTML;
+                keywords = el_kw.innerHTML;
                 if (keywords.indexOf(keyword) == -1) {
                     found = true;
-                    gEbT('keywords').innerHTML += (keywords.length > 6 ? ', ' : '') + keyword;
+                    el_kw.innerHTML += (keywords.length > 6 ? ', ' : '') + keyword;
                 }
             }
         }
@@ -105,17 +112,23 @@ function search ()
 }
 
 var open_ignore = Date.now();
+var arguments_open = 0;
 function openArgument (arg)
 {
     if (Date.now() > open_ignore && window.getSelection().toString() == "") {
         var st_as = gE(arg.id).style;
         var st_es = gE(arg.id +'e').style;
         if (st_es.maxHeight == "20rem") {
+          //Close argument
             st_es.maxHeight = "0rem";
             st_as.backgroundColor = "#ddd";
+            if (!--arguments_open) { document.body.style.backgroundColor = "#fff"; }
         } else {
+          //Open argument
             st_es.maxHeight = "20rem";
             st_as.backgroundColor = "#fff";
+            document.body.style.backgroundColor = "#ddd";
+            ++arguments_open;
         }
     }
     open_ignore = Date.now() + 100;
@@ -123,6 +136,7 @@ function openArgument (arg)
 
 
 function gE (e) { return document.getElementById(e); }
+function fy (a,b,c,d) { c=a.length;while(c)b=Math.random()*c--|0,d=a[c],a[c]=a[b],a[b]=d } //Fisher-Yates random. Use case: fy(array)
 function gEbT (e) { return document.getElementsByTagName(e)[0]; }
         </script>
 
@@ -168,6 +182,7 @@ navbar {
     overflow: hidden;
     height: 2.9rem;
     cursor: text;
+    z-index: 1;
 }
 navbar * {
     display: inline;
@@ -190,7 +205,7 @@ navbar h1 {
     color: #222;
 }
 #search, #searchIcon {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     padding: .5rem;
     background-color: transparent;
     border-style: none;
@@ -211,7 +226,6 @@ content {
     display: block;
     margin-top: 5rem;
     min-height: 100%;
-    background-color: #fff;
     padding: 1rem 1rem 10rem 1rem;
     text-align: center;
 }
@@ -260,10 +274,11 @@ tags {
     display: block;
     background-color: #000;
     color: #fff;
-    width: 20rem;
-    padding: .25rem .5rem;
+    width: 16rem;
+    padding: .25rem 1rem .25rem .5rem;
     font-size: 1.2rem;
     font-variant: small-caps;
+    clip-path: polygon(0% 0%, 100% 0%, 90% 100%, 0% 100%);
 }
 argument expand {
     display: block;
@@ -302,6 +317,7 @@ h2 {
     }
     #search {
         font-size: 1.2rem;
+        width: 12rem;
     }
     argument {
         width: 90%;
@@ -331,7 +347,7 @@ h2 {
         <content>
             <intro>
                 <h2>Pro-Communist Database of Arguments</h2>
-                <p>This database looks to address and refute all possible arguments against communism. Use the search-bar to find particular ones. Click/tap an argument to expand.</p>
+                <p>This database looks to address and refute all possible arguments against communism. Use the search-bar to find particular ones. Click/tap an argument to expand. You can contribute through <a href="https://github.com/phunanon/PCDA/blob/master/index.html">Github</a>!</p>
             </intro>
             <arguments>
             </arguments>
