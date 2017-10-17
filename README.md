@@ -1,2 +1,2 @@
 # PCDA
-Pro-Communist Database of Arguments
+Pro-Communist Database of Accusations
