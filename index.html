@@ -111,12 +111,12 @@ function search ()
     for (var t = 0, t_len = terms.length; t < t_len; ++t) {
       //Search through all tags, and hide arguments not containing that tag
         for (var a = 0, a_len = arguments_DB.length; a < a_len; ++a) {
-            var ki = arguments_DB[a][1].toLowerCase().indexOf(terms[t].toLowerCase());
+            var ki = arguments_DB[a][1].trim().toLowerCase().indexOf(terms[t].trim().toLowerCase());
             if (ki != -1) {
                 gE('a'+ a).style.display = "inline-block";
-                keyword = seekWord(ki, arguments_DB[a][1]);
+                keyword = seekWord(ki, arguments_DB[a][1]).trim().toLowerCase();
                 keywords = el_kw.innerHTML;
-                if (keywords.indexOf(keyword) == -1) {
+                if (keywords.trim().indexOf(keyword) == -1) {
                     found = true;
                     el_kw.innerHTML += (keywords.length > 6 ? ', ' : '') + keyword;
                 }
