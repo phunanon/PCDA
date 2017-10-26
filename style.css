@@ -20,7 +20,7 @@ body {
     background-color: #fff;
     font-family: "Museo Slab", serif;
     font-size: 1.1rem;
-    letter-spacing: .01rem;
+    letter-spacing: -.01rem;
     text-shadow: .1rem .1rem .1rem rgba(0, 0, 0, .25);
 }
 
