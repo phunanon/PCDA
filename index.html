@@ -102,14 +102,14 @@ function openArgument (arg)
     if (Date.now() > open_ignore && window.getSelection().toString() == "") {
         var st_as = gE(arg.id).style;
         var st_es = gE(arg.id +'e').style;
-        if (st_es.maxHeight == "20rem") {
+        if (st_es.maxHeight == "64rem") {
           //Close argument
             st_es.maxHeight = "0rem";
             st_as.backgroundColor = "#ddd";
             if (!--arguments_open) { document.body.style.backgroundColor = "#fff"; }
         } else {
           //Open argument
-            st_es.maxHeight = "20rem";
+            st_es.maxHeight = "64rem";
             st_as.backgroundColor = "#fff";
             document.body.style.backgroundColor = "#ddd";
             ++arguments_open;
