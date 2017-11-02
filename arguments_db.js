@@ -22,7 +22,7 @@ var arguments_DB = [
 
     ["Socialist countries are always poor and hungry", "poverty, poor, hungry, hunger, famine, food, bread", "", "Burkina Faso"],
 
-    ["Communist countries are anti-LGBT/civil rights", "LGBT, gay, rights, civil", "", "Burkina Faso"],
+    ["Communist countries are anti-LGBT/civil rights", "LGBT, gay, rights, civil, homosexual", "While it is unfortunately true that countries such as the USSR had mixed policy on homosexuality, other movements for their time were progressive in decriminalising such acts, and to this day most Communist movements are pro-LGBT. Russia in the USSR was also <b>the first</b> major world power to <a href=\"https://books.google.com/books?id=Qk-ICsx5L90C\">grant women suffrage</a>.<br>Burkina Faso under the leadership of Marxist revolutionary Thomas Sankara banned female genital mutilation, forced marriages and polygamy, while appointing women to high governmental positions and encouraging them to work outside the home and stay in school even if pregnant[http://newsreel.org/nav/title.asp?tc=CN0205].", "Burkina Faso"],
 
     ["Antifa are fascist", "fascism, fascist, antifa", "Short theoretical rebuttal", "Long, sourced counter-argument"]
 
