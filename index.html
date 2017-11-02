@@ -4,6 +4,7 @@
         <title>Pro-Communist Database of Accusations</title>
         <meta name="viewport" content="width=device-width, initial-scale=0.8">
         <meta charset="UTF-8">
+        <base target="_blank">
         <link rel="stylesheet" type="text/css" href="style.css">
         <script type="text/javascript" src="arguments_db.js"></script>
         <script>
@@ -13,13 +14,17 @@ function pageLoad ()
     var arguments_HTML = '';
     fy(arguments_DB); //Randomise argument order
     for (var a = 0, a_len = arguments_DB.length; a < a_len; ++a) {
-        arguments_HTML += '<argument onclick="openArgument(this)" id="a'+ a +'"><accusation>'+
+      //Output arguments HTML
+        var html =  '<argument onclick="openArgument(this)" id="a'+ a +'"><accusation>'+
             arguments_DB[a][0] +'</accusation><tags>'+
             arguments_DB[a][1] +'</tags><expand id="a'+ a +'e"><short>'+
             arguments_DB[a][2] +'</short><long>'+
             arguments_DB[a][3] +'</long></expand></argument>';
+        html = html.replace(/\[(.+?)\]/g, " <sup><a href=\"$1\">[ref]</a></sup>");
+        arguments_HTML += html;
     }
     gEbT("arguments").innerHTML = arguments_HTML;
+    gE("search").focus();
 }
 
 
