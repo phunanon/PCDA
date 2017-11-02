@@ -20,7 +20,7 @@ body {
     background-color: #fff;
     font-family: "Museo Slab", serif;
     font-size: 1.1rem;
-    letter-spacing: -.01rem;
+    letter-spacing: .01rem;
     text-shadow: .1rem .1rem .1rem rgba(0, 0, 0, .25);
 }
 
@@ -36,6 +36,7 @@ navbar {
     height: 2.9rem;
     cursor: text;
     z-index: 1;
+    box-shadow: -.1rem .1rem .1rem rgba(0, 0, 0, .5);
 }
 navbar * {
     display: inline;
@@ -79,7 +80,7 @@ content {
     display: block;
     margin-top: 5rem;
     min-height: 100%;
-    padding: 1rem 1rem 10rem 1rem;
+    padding: 2rem 1rem 10rem 1rem;
     text-align: center;
 }
 intro {
@@ -92,7 +93,7 @@ keywords {
     display: block !important;
     max-width: 100%;
     background-color: #000;
-    margin: 1.5rem 1rem 0rem 1rem;
+    margin: 1rem 1rem 0rem 1rem;
     padding: .5rem;
     font-size: 1.5rem;
     font-variant: small-caps;
@@ -144,6 +145,11 @@ short, long {
 short {
     font-size: 1.32rem;
     border-bottom: .1rem solid #000;
+    padding-left: 2rem;
+    list-style: square;
+}
+short li {
+    margin: 1rem 0rem;
 }
 
 
