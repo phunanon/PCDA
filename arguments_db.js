@@ -30,4 +30,5 @@ var arguments_DB = [
 
 /* SOURCES FOR RESEARCH:
 https://www.reddit.com/r/communism/comments/6uhar8/comrades_reading_the_declassified_post_ww2/
+https://www.rbth.com/arts/2014/10/01/african-americans_search_for_equality_led_to_the_soviet_union_40113.html
 */
