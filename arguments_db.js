@@ -4,7 +4,7 @@ var arguments_DB = [
 
     ["Stalin manufactured famine in The Ukraine", "famine, The Ukraine, Soviet, Union, Stalin, 1932", "Short theoretical rebuttal", "Long, sourced counter-argument"],
 
-    ["Communism is against human nature", "human, nature, unnatural", "Short theoretical rebuttal", "Long, sourced counter-argument"],
+    ["Communism is against human nature", "human, nature, unnatural, greed, greedy", "Short theoretical rebuttal", "Long, sourced counter-argument"],
 
     ["Markets result in perfect allocation of resources", "markets, allocation, perfect, resources", "Short theoretical rebuttal", "Long, sourced counter-argument"],
 
