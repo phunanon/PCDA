@@ -1,141 +1,33 @@
-<!DOCTYPE HTML>
-<html>
-    <head>
-        <title>Pro-Communist Database of Accusations</title>
-        <meta name="viewport" content="width=device-width, initial-scale=0.8">
-        <meta charset="UTF-8">
-        <link rel="stylesheet" type="text/css" href="style.css">
-        <script type="text/javascript" src="arguments_db.js"></script>
-        <script>
-function pageLoad ()
-{
-  //Output arguments to the DOM
-    var arguments_HTML = '';
-    fy(arguments_DB); //Randomise argument order
-    for (var a = 0, a_len = arguments_DB.length; a < a_len; ++a) {
-        arguments_HTML += '<argument onclick="openArgument(this)" id="a'+ a +'"><accusation>'+
-            arguments_DB[a][0] +'</accusation><tags>'+
-            arguments_DB[a][1] +'</tags><expand id="a'+ a +'e"><short>'+
-            arguments_DB[a][2] +'</short><long>'+
-            arguments_DB[a][3] +'</long></expand></argument>';
-    }
-    gEbT("arguments").innerHTML = arguments_HTML;
-}
+var arguments_DB = [
 
+    ["Markets foster innovation", "innovation, entrepreneurship, markets", "Short theoretical rebuttal", "Long, sourced counter-argument"],
 
-function seekWord (start, text)
-{
-    var ret = "";
-    for (var t = start, t_len = 0; t >= t_len; --t) {
-        start = t;
-        if (text[t] == " ") { break; }
-    }
-    for (var t = start, t_len = text.length; t < t_len; ++t) {
-        if (text[t] != ",") {
-            ret += text[t];
-        } else {
-            break;
-        }
-    }
-    return ret;
-}
+    ["Stalin manufactured famine in The Ukraine", "famine, The Ukraine, Soviet, Union, Stalin, 1932", "Short theoretical rebuttal", "Long, sourced counter-argument"],
 
-function search ()
-{
-    var search_term = gE("search").value.trim();
-    var el_si = gE("searchIcon");
-    var el_kw = gEbT('keywords');
-    var st_in = gEbT("intro").style;
-    if (search_term.length > 0) {
-      //Reveal and hide elements on DOM for searching
-        gEbT("navbar").style.height = "7rem";
-        st_in.maxHeight = "0rem";
-        st_in.opacity = "0";
-        gEbT("content").style.marginTop = "8rem";
-        gEbT('keywords').innerHTML = "&nbsp;";
-        el_si.innerHTML = "&#x274c;";
-        el_si.style.cursor = "pointer";
-      //Hide all arguments
-        for (var a = 0, a_len = arguments_DB.length; a < a_len; ++a) {
-            gE('a'+ a).style.display = "none";
-        }
-    } else {
-      //Restore states of DOM elements after searching
-        gEbT("navbar").style.height = "2.9rem";
-        st_in.maxHeight = "10rem";
-        st_in.opacity = "1";
-        gEbT("content").style.marginTop = "5rem";
-        el_si.innerHTML = "&#x1f50e;";
-        el_si.style.cursor = "unset";
-      //Unhide all arguments
-        for (var a = 0, a_len = arguments_DB.length; a < a_len; ++a) {
-            gE('a'+ a).style.display = "inline-block";
-        }
-        return;
-    }
-    var terms = search_term.split(" ");
-    var found = false;
-    for (var t = 0, t_len = terms.length; t < t_len; ++t) {
-      //Search through all tags, and hide arguments not containing that tag
-        for (var a = 0, a_len = arguments_DB.length; a < a_len; ++a) {
-            var ki = arguments_DB[a][1].trim().toLowerCase().indexOf(terms[t].trim().toLowerCase());
-            if (ki != -1) {
-                gE('a'+ a).style.display = "inline-block";
-                keyword = seekWord(ki, arguments_DB[a][1]).trim().toLowerCase();
-                keywords = el_kw.innerHTML;
-                if (keywords.trim().indexOf(keyword) == -1) {
-                    found = true;
-                    el_kw.innerHTML += (keywords.length > 6 ? ', ' : '') + keyword;
-                }
-            }
-        }
-    }
-    if (!found) {
-        gEbT('keywords').innerHTML = "&nbsp;";
-    }
-}
+    ["Communism is against human nature", "human, nature, unnatural", "Short theoretical rebuttal", "Long, sourced counter-argument"],
 
-var open_ignore = Date.now();
-var arguments_open = 0;
-function openArgument (arg)
-{
-    if (Date.now() > open_ignore && window.getSelection().toString() == "") {
-        var st_as = gE(arg.id).style;
-        var st_es = gE(arg.id +'e').style;
-        if (st_es.maxHeight == "20rem") {
-          //Close argument
-            st_es.maxHeight = "0rem";
-            st_as.backgroundColor = "#ddd";
-            if (!--arguments_open) { document.body.style.backgroundColor = "#fff"; }
-        } else {
-          //Open argument
-            st_es.maxHeight = "20rem";
-            st_as.backgroundColor = "#fff";
-            document.body.style.backgroundColor = "#ddd";
-            ++arguments_open;
-        }
-    }
-    open_ignore = Date.now() + 100;
-}
+    ["Markets result in perfect allocation of resources", "markets, allocation, perfect, resources", "Short theoretical rebuttal", "Long, sourced counter-argument"],
 
+    ["Communism is undemocratic", "democracy, dictatorship, undemocratic", "Short theoretical rebuttal", "Long, sourced counter-argument"],
 
-function gE (e) { return document.getElementById(e); }
-function fy (a,b,c,d) { c=a.length;while(c)b=Math.random()*c--|0,d=a[c],a[c]=a[b],a[b]=d } //Fisher-Yates random. Use case: fy(array)
-function gEbT (e) { return document.getElementsByTagName(e)[0]; }
-        </script>
-    </head>
-    <body onload="pageLoad()">
-        <navbar onclick="gE('search').focus()">
-            <h1>PCDA &#x262d;</h1><span id="searchIcon" onclick="gE('search').value = ''; search();">&#x1f50e;</span><input type="text" id="search" placeholder="Search for keywords" onkeyup="search()" autocomplete="off"></input>
-            <keywords>Famine, Ukraine</keywords>
-        </navbar>
-        <content>
-            <intro>
-                <h2>Pro-Communist Database of Accusations</h2>
-                <p>This database looks to address and refute all layman and genuine accusations against communism. Use the search-bar to find particular ones. Click/tap an accusation to expand. You can contribute on <a href="https://github.com/phunanon/PCDA">Github</a>!</p>
-            </intro>
-            <arguments>
-            </arguments>
-        </content>
-    </body>
-</html>
+    ["Communism has never worked", "work, success, failure, achieve", "Short theoretical rebuttal", "Long, sourced counter-argument"],
+
+    ["Communism killed millions of people", "killed, deaths, millions, died", "", "Iraq/Middle East"],
+
+    ["Communism is too corruptible", "corruption", "Short theoretical rebuttal", "Long, sourced counter-argument"],
+
+    ["Venezuela is socialist", "Venezuela", "Short theoretical rebuttal", "Long, sourced counter-argument"],
+
+    ["The Soviet Union was allied with Nazi Germany", "Nazism, Germany, Soviet, Union", "Short theoretical rebuttal", "Long, sourced counter-argument"],
+
+    ["Socialist countries are always poor and hungry", "poverty, poor, hungry, hunger, famine, food, bread", "", "Burkina Faso"],
+
+    ["Communist countries are anti-LGBT/civil rights", "LGBT, gay, rights, civil", "", "Burkina Faso"],
+
+    ["Antifa are fascist", "fascist, fascism, antifa", "Short theoretical rebuttal", "Long, sourced counter-argument"]
+
+];
+
+/* SOURCES FOR RESEARCH:
+https://www.reddit.com/r/communism/comments/6uhar8/comrades_reading_the_declassified_post_ww2/
+*/
