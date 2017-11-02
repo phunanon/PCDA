@@ -22,7 +22,9 @@ var arguments_DB = [
 
     ["Socialist countries are always poor and hungry", "poverty, poor, hungry, hunger, famine, food, bread", "", "Burkina Faso"],
 
-    ["Communist countries are anti-LGBT/civil rights", "LGBT, gay, rights, civil", "", "Burkina Faso"]
+    ["Communist countries are anti-LGBT/civil rights", "LGBT, gay, rights, civil", "", "Burkina Faso"],
+
+    ["Antifa are fascist", "fascism, fascist, antifa", "Short theoretical rebuttal", "Long, sourced counter-argument"]
 
 ];
 
