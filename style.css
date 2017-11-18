@@ -1,10 +1,6 @@
 @font-face {
-    font-family: 'Museo Slab';
-    src: url('museo-slab.woff2') format('woff2');
-}
-@font-face {
-    font-family: 'Tangerine';
-    src: url('Tangerine.woff2') format('woff2');
+    font-family: 'Cantarell;
+    src: url('CantarellRegular.woff2') format('woff2');
 }
 
 * {
@@ -18,7 +14,7 @@ html, body {
 body {
     position: relative;
     background-color: #fff;
-    font-family: "Museo Slab", serif;
+    font-family: 'Cantarell', serif;
     font-size: 1.1rem;
     letter-spacing: .01rem;
     text-shadow: .1rem .1rem .1rem rgba(0, 0, 0, .25);
