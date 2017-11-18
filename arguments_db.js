@@ -52,7 +52,7 @@ var arguments_DB = [
 
     ["Socialist countries are always poor and hungry",
     "poverty, poor, hungry, hunger, famine, food, bread",
-    "<li>Within four years (1983-1987) Burkina Faso reached food self-sufficiency, producing double the regional average for wheat production. Before this, the old state ('Upper Volta') was a food-importing French neo-colonial capitalist state.[https://web.archive.org/web/20170929035718/http://africanagenda.net/africas-che-guevara-and-burkina-faso/]</li><li>While people argue that countries such as the USA ate "better" than the USSR, this cannot be proven or disproven directly. Post-1960 data shows there was only a drop in calorie consumption as the USSR collapsed. The two nations had markedly different diets, but overall data does not represent this as it is unimportant - malnutrition would be very improbable on such a high calorie diet. [https://nintil.com/2016/05/11/the-soviet-union-food/]{Levi}</li>",
+    '<li>Within four years (1983-1987) Burkina Faso reached food self-sufficiency, producing double the regional average for wheat production. Before this, the old state ("Upper Volta") was a food-importing French neo-colonial capitalist state.[https://web.archive.org/web/20170929035718/http://africanagenda.net/africas-che-guevara-and-burkina-faso/]</li><li>While people argue that countries such as the USA ate "better" than the USSR, this cannot be proven or disproven directly. Post-1960 data shows there was only a drop in calorie consumption as the USSR collapsed. The two nations had markedly different diets, but overall data does not represent this as it is unimportant - malnutrition would be very improbable on such a high calorie diet. [https://nintil.com/2016/05/11/the-soviet-union-food/]{Levi}</li>',
     "Long, sourced counter-arguments"],
 
     ["Communist countries are anti-LGBT/civil rights",
@@ -66,8 +66,8 @@ var arguments_DB = [
     "Long, sourced counter-arguments"],
 
     ["The majority of people were happy the USSR dissolved",
-    "USSR, happier, survey, dissolve"
-    "<li>[https://medium.com/@DavideMastracci/former-soviet-citizens-support-the-ussr-afdcb10c2225]</li><li>[http://www.pewresearch.org/fact-tank/2010/04/28/hungary-better-off-under-communism/]</li>"
+    "USSR, happier, survey, dissolve",
+    "<li>[https://medium.com/@DavideMastracci/former-soviet-citizens-support-the-ussr-afdcb10c2225]</li><li>[http://www.pewresearch.org/fact-tank/2010/04/28/hungary-better-off-under-communism/]</li>",
     ""]
 
 ];
